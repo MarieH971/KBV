@@ -40,7 +40,18 @@ services:
 # Mercure is installed as a Caddy module, prevent the Flex recipe from installing another service
 ##> symfony/mercure-bundle ###
 ##< symfony/mercure-bundle ###
-
+  phpmyadmin:
+    container_name: "phpmyadmin"
+    image: phpmyadmin:5.2.1
+    environment:
+      PMA_HOST: "database"
+      PMA_PORT: "3306"
+      PMA_USER: "app"
+      PMA_PASSWORD: "app"
+    ports:
+      - "81:80"
+    depends_on:
+      - database
 ##> doctrine/doctrine-bundle ###
   database:
       container_name: "database"
