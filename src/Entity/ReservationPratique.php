@@ -18,12 +18,14 @@ class ReservationPratique
     #[ORM\JoinColumn(nullable: false)]
     private ?Adherents $adherents = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Pratique $type_entrainement = null;
+
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_reservation = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Pratique $session = null;
 
     public function getId(): ?int
     {
@@ -42,17 +44,6 @@ class ReservationPratique
         return $this;
     }
 
-    public function getTypeEntrainement(): ?Pratique
-    {
-        return $this->type_entrainement;
-    }
-
-    public function setTypeEntrainement(?Pratique $type_entrainement): static
-    {
-        $this->type_entrainement = $type_entrainement;
-
-        return $this;
-    }
 
     public function getDateReservation(): ?\DateTimeInterface
     {
@@ -62,6 +53,18 @@ class ReservationPratique
     public function setDateReservation(\DateTimeInterface $date_reservation): static
     {
         $this->date_reservation = $date_reservation;
+
+        return $this;
+    }
+
+    public function getSession(): ?Pratique
+    {
+        return $this->session;
+    }
+
+    public function setSession(?Pratique $session): static
+    {
+        $this->session = $session;
 
         return $this;
     }

@@ -21,13 +21,10 @@ class Produits
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?int $quantite_disponible = null;
+    private ?int $stock = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $image = null;
-
-    #[ORM\Column]
-    private ?float $prix = null;
+    private ?string $photo = null;
 
     public function getId(): ?int
     {
@@ -58,38 +55,26 @@ class Produits
         return $this;
     }
 
-    public function getQuantiteDisponible(): ?int
+    public function getStock(): ?int
     {
-        return $this->quantite_disponible;
+        return $this->stock;
     }
 
-    public function setQuantiteDisponible(int $quantite_disponible): static
+    public function setStock(int $stock): static
     {
-        $this->quantite_disponible = $quantite_disponible;
+        $this->stock = $stock;
 
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getPhoto(): ?string
     {
-        return $this->image;
+        return $this->photo;
     }
 
-    public function setImage(string $image): static
+    public function setPhoto(string $photo): static
     {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    public function getPrix(): ?float
-    {
-        return $this->prix;
-    }
-
-    public function setPrix(float $prix): static
-    {
-        $this->prix = $prix;
+        $this->photo = $photo;
 
         return $this;
     }

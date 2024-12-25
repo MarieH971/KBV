@@ -22,11 +22,16 @@ class ReservationEquipement
     #[ORM\JoinColumn(nullable: false)]
     private ?Equipement $Equipement = null;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date = null;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_reservation = null;
+    private ?\DateTimeInterface $date_debut = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_retour = null;
+
+
 
     public function getId(): ?int
     {
@@ -57,17 +62,6 @@ class ReservationEquipement
         return $this;
     }
 
-    public function getDateReservation(): ?\DateTimeInterface
-    {
-        return $this->date_reservation;
-    }
-
-    public function setDateReservation(\DateTimeInterface $date_reservation): static
-    {
-        $this->date_reservation = $date_reservation;
-
-        return $this;
-    }
 
     public function getDateRetour(): ?\DateTimeInterface
     {
@@ -77,6 +71,30 @@ class ReservationEquipement
     public function setDateRetour(\DateTimeInterface $date_retour): static
     {
         $this->date_retour = $date_retour;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): static
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getDateDebut(): ?\DateTimeInterface
+    {
+        return $this->date_debut;
+    }
+
+    public function setDateDebut(\DateTimeInterface $date_debut): static
+    {
+        $this->date_debut = $date_debut;
 
         return $this;
     }

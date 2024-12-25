@@ -17,17 +17,11 @@ class Pratique
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $heure_debut = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $heure_fin = null;
-
-    #[ORM\Column(length: 50)]
-    private ?string $type_entrainement = null;
+    #[ORM\Column(length: 255)]
+    private ?string $session = null;
 
     #[ORM\Column]
-    private ?int $nombre_places = null;
+    private ?int $capacite_max = null;
 
     public function getId(): ?int
     {
@@ -46,50 +40,51 @@ class Pratique
         return $this;
     }
 
-    public function getHeureDebut(): ?\DateTimeInterface
+
+    public function getSession(): ?string
     {
-        return $this->heure_debut;
+        return $this->session;
     }
 
-    public function setHeureDebut(\DateTimeInterface $heure_debut): static
+    public function setSession(string $session): static
     {
-        $this->heure_debut = $heure_debut;
+        $this->session = $session;
 
         return $this;
     }
 
-    public function getHeureFin(): ?\DateTimeInterface
+    public function getCapaciteMax(): ?int
     {
-        return $this->heure_fin;
+        return $this->capacite_max;
     }
 
-    public function setHeureFin(\DateTimeInterface $heure_fin): static
+    public function setCapaciteMax(int $capacite_max): static
     {
-        $this->heure_fin = $heure_fin;
+        $this->capacite_max = $capacite_max;
 
         return $this;
     }
 
-    public function getTypeEntrainement(): ?string
+    public function getLieu(): ?string
     {
-        return $this->type_entrainement;
+        return $this->lieu;
     }
 
-    public function setTypeEntrainement(string $type_entrainement): static
+    public function setLieu(string $lieu): static
     {
-        $this->type_entrainement = $type_entrainement;
+        $this->lieu = $lieu;
 
         return $this;
     }
 
-    public function getNombrePlaces(): ?int
+    public function getDescription(): ?string
     {
-        return $this->nombre_places;
+        return $this->description;
     }
 
-    public function setNombrePlaces(int $nombre_places): static
+    public function setDescription(string $description): static
     {
-        $this->nombre_places = $nombre_places;
+        $this->description = $description;
 
         return $this;
     }
