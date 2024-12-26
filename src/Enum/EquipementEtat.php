@@ -2,12 +2,10 @@
 
 namespace App\Enum;
 
-
-enum PratiqueSession: string
+enum EquipementEtat: string
 {
-    case SESSION1 = 'session1 Avancé/Loisir Vendredi 18h/20h Terrain1 CREPS';
-    case SESSION2 = 'session2 Avancé/Loisir Dimanche 08h30/11h30 Terrain3 CANELLA';
-    case SESSION3 = 'session3 Débutant Vendredi 18h/20h Terrain2 CREPS';
+    case NEUF = 'neuf';
+    case USÉ = 'usé';
 
 
     /**
