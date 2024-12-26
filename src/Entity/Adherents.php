@@ -48,8 +48,8 @@ class Adherents
     #[ORM\Column(type: 'datetime')]
     private ?\DateTime $date_expiration_licence = null;
 
-    #[ORM\Column(enumType: Niveau::class)]
-    private ?Niveau $niveau;
+    #[ORM\Column(type: 'string', enumType: Niveau::class)]
+    private ?Niveau $niveau = null;
 
 
 
@@ -191,7 +191,7 @@ class Adherents
         return $this->niveau;
     }
 
-    public function setNiveau(?string $niveau): static
+    public function setNiveau(?Niveau $niveau): static
     {
         $this->niveau = $niveau;
 

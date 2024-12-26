@@ -25,7 +25,7 @@ class Produits
     #[ORM\Column(length: 255)]
     private ?string $photo = null;
 
-    #[ORM\Column(enumType: Categorie::class)]
+    #[ORM\Column(type: 'string', enumType: Categorie::class)]
     private ?Categorie $categorie;
 
 

@@ -17,7 +17,7 @@ class Equipement
     private ?int $id = null;
 
 
-    #[ORM\Column(enumType: Etat::class)]
+    #[ORM\Column(type: 'string', enumType: Etat::class)]
     private ?Etat $etat = null;
 
     #[ORM\Column]
@@ -26,7 +26,7 @@ class Equipement
     #[ORM\Column(length: 255)]
     private ?string $photo = null;
 
-    #[ORM\Column(enumType: Type::class)]
+    #[ORM\Column(type: 'string', enumType: Type::class)]
     private ?Type $type = null;
 
 
@@ -42,7 +42,7 @@ class Equipement
         return $this->etat;
     }
 
-    public function setEtat(string $etat): static
+    public function setEtat(?Etat $etat): static
     {
         $this->etat = $etat;
 
@@ -78,7 +78,7 @@ class Equipement
         return $this->type;
     }
 
-    public function setType(string $type): static
+    public function setType(?Type $type): static
     {
         $this->type = $type;
 

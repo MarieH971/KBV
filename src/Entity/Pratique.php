@@ -19,7 +19,7 @@ class Pratique
     #[ORM\Column(type: 'datetime')]
     private ?DateTime $date = null;
 
-    #[ORM\Column(enumType: Session::class)]
+    #[ORM\Column(type: 'string', enumType: Session::class)]
     private ?Session $session;
 
     #[ORM\Column]
@@ -47,7 +47,7 @@ class Pratique
         return $this->session;
     }
 
-    public function setSession(int $session): static
+    public function setSession(?Session $session): static
     {
         $this->session = $session;
 
