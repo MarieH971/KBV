@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ReservationEquipementRepository;
+use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,14 +23,14 @@ class ReservationEquipement
     #[ORM\JoinColumn(nullable: false)]
     private ?Equipement $Equipement = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTime $date = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_debut = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTime $date_debut = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_retour = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTime $date_retour = null;
 
 
 

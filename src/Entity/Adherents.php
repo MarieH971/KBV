@@ -3,8 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AdherentsRepository;
-use App\Enum\AdherentNiveau;
-use Doctrine\DBAL\Types\Types;
+use App\Enum\Niveau;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -37,21 +36,20 @@ class Adherents
     #[ORM\Column(length: 50)]
     private ?string $mot_de_passe = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_de_naissance = null;
+    #[ORM\Column(type: 'date')]
+    private ?\DateTime $date_de_naissance = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_inscription = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTime $date_inscription = null;
 
     #[ORM\Column(length: 20)]
     private ?string $numero_licence = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_expiration_licence = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTime $date_expiration_licence = null;
 
-
-    #[ORM\Column(enumType: AdherentNiveau::class)]
-    private ?AdherentNiveau $niveau;
+    #[ORM\Column(enumType: Niveau::class)]
+    private ?Niveau $niveau;
 
 
 
@@ -116,24 +114,24 @@ class Adherents
         return $this;
     }
 
-    public function getDateDeNaissance(): ?\DateTimeInterface
+    public function getDateDeNaissance(): ?\DateTime
     {
         return $this->date_de_naissance;
     }
 
-    public function setDateDeNaissance(\DateTimeInterface $date_de_naissance): static
+    public function setDateDeNaissance(\DateTime $date_de_naissance): static
     {
         $this->date_de_naissance = $date_de_naissance;
 
         return $this;
     }
 
-    public function getDateInscription(): ?\DateTimeInterface
+    public function getDateInscription(): ?\DateTime
     {
         return $this->date_inscription;
     }
 
-    public function setDateInscription(\DateTimeInterface $date_inscription): static
+    public function setDateInscription(\DateTime $date_inscription): static
     {
         $this->date_inscription = $date_inscription;
 
@@ -152,12 +150,12 @@ class Adherents
         return $this;
     }
 
-    public function getDateExpirationLicence(): ?\DateTimeInterface
+    public function getDateExpirationLicence(): ?\DateTime
     {
         return $this->date_expiration_licence;
     }
 
-    public function setDateExpirationLicence(\DateTimeInterface $date_expiration_licence): static
+    public function setDateExpirationLicence(\DateTime $date_expiration_licence): static
     {
         $this->date_expiration_licence = $date_expiration_licence;
 
@@ -188,7 +186,7 @@ class Adherents
         return $this;
     }
 
-    public function getNiveau(): ?string
+    public function getNiveau(): ?Niveau
     {
         return $this->niveau;
     }

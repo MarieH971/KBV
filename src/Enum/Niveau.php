@@ -2,10 +2,14 @@
 
 namespace App\Enum;
 
-enum EquipementType: string
+
+enum Niveau: string
 {
-    case BALLON = 'ballon';
-    case KIT_DE_JEU = 'kit de jeu';
+    case AVANCE = 'Avance';
+    case LOISIR = 'Loisir';
+    case DEBUTANT = 'debutant';
+
+
 
     /**
      * Converts the enum cases into an associative array.

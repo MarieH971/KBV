@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PratiqueRepository;
+use App\Enum\Session;
+use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -14,11 +16,11 @@ class Pratique
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?DateTime $date = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $session = null;
+    #[ORM\Column(enumType: Session::class)]
+    private ?Session $session;
 
     #[ORM\Column]
     private ?int $capacite_max = null;
@@ -28,30 +30,30 @@ class Pratique
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?\DateTime
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): static
+    public function setDate(\DateTime $date): static
     {
         $this->date = $date;
 
         return $this;
     }
 
-
-    public function getSession(): ?string
+    public function getSession(): ?int
     {
         return $this->session;
     }
 
-    public function setSession(string $session): static
+    public function setSession(int $session): static
     {
         $this->session = $session;
 
         return $this;
     }
+
 
     public function getCapaciteMax(): ?int
     {
@@ -61,30 +63,6 @@ class Pratique
     public function setCapaciteMax(int $capacite_max): static
     {
         $this->capacite_max = $capacite_max;
-
-        return $this;
-    }
-
-    public function getLieu(): ?string
-    {
-        return $this->lieu;
-    }
-
-    public function setLieu(string $lieu): static
-    {
-        $this->lieu = $lieu;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): static
-    {
-        $this->description = $description;
 
         return $this;
     }

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Enum\Type;
+use App\Enum\Etat;
 use App\Repository\EquipementRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,8 +16,9 @@ class Equipement
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 150)]
-    private ?string $etat = null;
+
+    #[ORM\Column(enumType: Etat::class)]
+    private ?Etat $etat = null;
 
     #[ORM\Column]
     private ?int $stock = null;
@@ -23,15 +26,15 @@ class Equipement
     #[ORM\Column(length: 255)]
     private ?string $photo = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $type = null;
+    #[ORM\Column(enumType: Type::class)]
+    private ?Type $type = null;
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
-
 
 
     public function getEtat(): ?string

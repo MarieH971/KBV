@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\Categorie;
 use App\Repository\ProduitsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -24,14 +25,16 @@ class Produits
     #[ORM\Column(length: 255)]
     private ?string $photo = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $type = null;
+    #[ORM\Column(enumType: Categorie::class)]
+    private ?Categorie $categorie;
+
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
 
     public function getDescription(): ?string
     {
@@ -69,14 +72,14 @@ class Produits
         return $this;
     }
 
-    public function getType(): ?string
+    public function getCategorie(): ?string
     {
-        return $this->type;
+        return $this->categorie;
     }
 
-    public function setType(string $type): static
+    public function setCategorie(string $categorie): static
     {
-        $this->type = $type;
+        $this->categorie = $categorie;
 
         return $this;
     }

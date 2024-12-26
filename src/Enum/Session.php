@@ -2,11 +2,13 @@
 
 namespace App\Enum;
 
-enum ProduitType: string
+
+enum Session: string
 {
-    case ROLE_MEMBER = 'member';
-    case ROLE_USER = 'user';
-    case ROLE_ADMIN = 'admin';
+    case SESSION1 = 'session1 Avancé/Loisir Vendredi 18h/20h Terrain1 CREPS';
+    case SESSION2 = 'session2 Avancé/Loisir Dimanche 08h30/11h30 Terrain3 CANELLA';
+    case SESSION3 = 'session3 Débutant Vendredi 18h/20h Terrain2 CREPS';
+
 
     /**
      * Converts the enum cases into an associative array.

@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum EquipementEtat: string
+enum Etat: string
 {
     case NEUF = 'neuf';
     case USÉ = 'usé';

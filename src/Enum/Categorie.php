@@ -2,13 +2,11 @@
 
 namespace App\Enum;
 
-
-enum PratiqueSession: string
+enum Categorie: string
 {
-    case SESSION1 = 'session1 Avancé/Loisir Vendredi 18h/20h Terrain1 CREPS';
-    case SESSION2 = 'session2 Avancé/Loisir Dimanche 08h30/11h30 Terrain3 CANELLA';
-    case SESSION3 = 'session3 Débutant Vendredi 18h/20h Terrain2 CREPS';
-
+    case ROLE_MEMBER = 'member';
+    case ROLE_USER = 'user';
+    case ROLE_ADMIN = 'admin';
 
     /**
      * Converts the enum cases into an associative array.
