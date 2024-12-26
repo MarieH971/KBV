@@ -14,15 +14,8 @@ class Equipement
     #[ORM\Column]
     private ?int $id = null;
 
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $description = null;
-
     #[ORM\Column(length: 150)]
     private ?string $etat = null;
-
-    #[ORM\Column]
-    private ?int $quantite_disponible = null;
 
     #[ORM\Column]
     private ?int $stock = null;
@@ -38,29 +31,8 @@ class Equipement
         return $this->id;
     }
 
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
 
-    public function setNom(string $nom): static
-    {
-        $this->nom = $nom;
 
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): static
-    {
-        $this->description = $description;
-
-        return $this;
-    }
 
     public function getEtat(): ?string
     {
@@ -70,30 +42,6 @@ class Equipement
     public function setEtat(string $etat): static
     {
         $this->etat = $etat;
-
-        return $this;
-    }
-
-    public function getQuantiteDisponible(): ?int
-    {
-        return $this->quantite_disponible;
-    }
-
-    public function setQuantiteDisponible(int $quantite_disponible): static
-    {
-        $this->quantite_disponible = $quantite_disponible;
-
-        return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): static
-    {
-        $this->image = $image;
 
         return $this;
     }
