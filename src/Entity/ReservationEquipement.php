@@ -23,7 +23,7 @@ class ReservationEquipement
     #[ORM\JoinColumn(nullable: false)]
     private ?Equipement $Equipement = null;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'dateTime')]
     private ?\DateTime $date = null;
 
     #[ORM\Column(type: 'datetime')]

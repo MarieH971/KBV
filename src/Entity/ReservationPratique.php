@@ -20,7 +20,6 @@ class ReservationPratique
     private ?Adherents $adherents = null;
 
 
-
     #[ORM\Column(type: 'datetime')]
     private ?\DateTime $date_reservation = null;
 
