@@ -3,11 +3,13 @@
 namespace App\Enum;
 
 
-enum RoleAdherent: string
+enum PratiqueSession: string
 {
+    case AVANCE = 'Avance';
+    case LOISIR = 'Loisir';
     case DEBUTANT = 'debutant';
-    case INTERMEDIAIRE = 'Loisir';
-    case EXPERT = 'Avancé';
+
+
 
     /**
      * Converts the enum cases into an associative array.

@@ -3,8 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\AdherentsRepository;
+use App\Enum\AdherentNiveau;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+
 
 #[ORM\Entity(repositoryClass: AdherentsRepository::class)]
 class Adherents
@@ -47,8 +49,10 @@ class Adherents
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_expiration_licence = null;
 
-    #[ORM\Column(length: 30, nullable: true)]
-    private ?string $niveau = null;
+
+    #[ORM\Column(enumType: AdherentNiveau::class)]
+    private ?AdherentNiveau $niveau;
+
 
 
 
