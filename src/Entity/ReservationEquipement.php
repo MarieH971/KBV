@@ -17,13 +17,13 @@ class ReservationEquipement
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Adherents $Adherents = null;
+    private ?Adherent $Adherent = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Equipement $Equipement = null;
 
-    #[ORM\Column(type: 'dateTime')]
+    #[ORM\Column(type: 'datetime')]
     private ?\DateTime $date = null;
 
     #[ORM\Column(type: 'datetime')]
@@ -39,14 +39,14 @@ class ReservationEquipement
         return $this->id;
     }
 
-    public function getAdherents(): ?Adherents
+    public function getAdherent(): ?Adherent
     {
-        return $this->Adherents;
+        return $this->Adherent;
     }
 
-    public function setAdherents(?Adherents $Adherents): static
+    public function setAdherent(?Adherent $Adherent): static
     {
-        $this->Adherents = $Adherents;
+        $this->Adherent = $Adherent;
 
         return $this;
     }

@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\AdherentsRepository;
+use App\Repository\AdherentRepository;
 use App\Enum\Niveau;
 use Doctrine\ORM\Mapping as ORM;
 
 
-#[ORM\Entity(repositoryClass: AdherentsRepository::class)]
-class Adherents
+#[ORM\Entity(repositoryClass: AdherentRepository::class)]
+class Adherent
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -48,7 +48,7 @@ class Adherents
     #[ORM\Column(type: 'datetime')]
     private ?\DateTime $date_expiration_licence = null;
 
-    #[ORM\Column(type: 'string', enumType: Niveau::class)]
+    #[ORM\Column(enumType: Niveau::class)]
     private ?Niveau $niveau = null;
 
 
