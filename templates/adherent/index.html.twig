@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Adhérents
+{% endblock %}
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<h1>Liste des Adhérents</h1>
+
+		{# This friendly message is coming from:
+					<ul>
+						<li>Your controller at
+							<code>/app/src/Controller/AdherentController.php</code>
+						</li>
+						<li>Your template at
+							<code>/app/templates/adherent/index.html.twig</code>
+						</li>
+					</ul> #}
+	</div>
+	<a href="{{ path('inscription_adherent') }}" class="btn btn-primary mb-3">Ajouter un Adhérent</a>
+
+	{% if app.session.flashbag.has('success') %}
+		<div class="alert alert-success">
+			{% for message in app.session.flashbag.get('success') %}
+				<p>{{ message }}</p>
+			{% endfor %}
+		</div>
+	{% endif %}
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prénom</th>
+				<th>Email</th>
+				<th>Date d'inscription</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for adherent in adherents %}
+				<tr>
+					<td>{{ adherent.nom }}</td>
+					<td>{{ adherent.prenom }}</td>
+					<td>{{ adherent.email }}</td>
+					<td>{{ adherent.dateInscription|date('d/m/Y') }}</td>
+					<td>
+						<a href="{{ path('adherent_show', {'id': adherent.id}) }}" class="btn btn-info btn-sm">Voir</a>
+						<a href="{{ path('adherent_edit', {'id': adherent.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
+						<form action="{{ path('adherent_delete', {'id': adherent.id}) }}" method="post" style="display:inline;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet adhérent ?');">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ adherent.id) }}">
+							<button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+						</form>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5" class="text-center">Aucun adhérent trouvé.</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

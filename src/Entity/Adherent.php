@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AdherentRepository;
 use App\Enum\Niveau;
+use App\Enum\RoleAdherent;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -47,6 +48,9 @@ class Adherent
 
     #[ORM\Column(type: 'datetime')]
     private ?\DateTime $date_expiration_licence = null;
+
+    #[ORM\Column(enumType: RoleAdherent::class)]
+    private ?RoleAdherent $roleAdherent;
 
     #[ORM\Column(enumType: Niveau::class)]
     private ?Niveau $niveau = null;
@@ -208,5 +212,23 @@ class Adherent
         $this->adresse = $adresse;
 
         return $this;
+    }
+
+    public function getRoleAdherent(): ?RoleAdherent
+    {
+        return $this->roleAdherent;
+    }
+
+    public function setRoleAdherent(RoleAdherent $roleAdherent): static
+    {
+        $this->roleAdherent = $roleAdherent;
+
+        return $this;
+    }
+
+    // Méthode pour vérifier si l'adhérent est un administrateur licencié
+    public function isAdministrateurLicencie(): bool
+    {
+        return $this->roleAdherent === RoleAdherent::ADMINISTRATEUR_LICENCIE;
     }
 }

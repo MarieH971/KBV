@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'Adhérent
+{% endblock %}
+
+{% block body %}
+	<h1>Détails de l'adhérent
+		{{ adherent.nom }}
+		{{ adherent.prenom }}</h1>
+
+	<ul>
+		<li>
+			<strong>Nom :</strong>
+			{{ adherent.nom }}</li>
+		<li>
+			<strong>Prénom :</strong>
+			{{ adherent.prenom }}</li>
+		<li>
+			<strong>Email :</strong>
+			{{ adherent.email }}</li>
+		<li>
+			<strong>Téléphone :</strong>
+			{{ adherent.telephone }}</li>
+		<li>
+			<strong>Date de naissance :</strong>
+			{{ adherent.dateDeNaissance ? adherent.dateDeNaissance|date('d/m/Y') : 'Non spécifiée' }}</li>
+		<li>
+			<strong>Date d'inscription :</strong>
+			{{ adherent.dateInscription|date('d/m/Y') }}</li>
+		<li>
+			<strong>Date d'expiration de la licence :</strong>
+			{{ adherent.dateExpirationLicence|date('d/m/Y') }}</li>
+		<li>
+			<strong>Niveau :</strong>
+			{{ adherent.niveau }}</li>
+		<li>
+			<strong>Rôle :</strong>
+			{{ adherent.roleAdherent }}</li>
+	</ul>
+
+	<a href="{{ path('adherent_edit', {'id': adherent.id}) }}" class="btn btn-warning">Modifier</a>
+	<a href="{{ path('adherent_index') }}" class="btn btn-secondary">Retour à la liste</a>
+{% endblock %}
