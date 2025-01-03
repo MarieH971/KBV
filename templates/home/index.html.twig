@@ -4,30 +4,162 @@
 {% endblock %}
 
 {% block body %}
-	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
-		}
-		.example-wrapper code {
-			background: #F5F5F5;
-			padding: 2px 6px;
-		}
-	</style>
 
-	<div class="example-wrapper">
-		<h1>Hello ! ✅</h1>
 
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>/app/src/Controller/HomeController.php</code>
-			</li>
-			<li>Your template at
-				<code>/app/templates/home/index.html.twig</code>
-			</li>
-		</ul>
-	</div>
+	{# <div class="example-wrapper">
+																				<h1>Hello ! ✅</h1>
+																		
+																				This friendly message is coming from:
+																				<ul>
+																					<li>Your controller at
+																						<code>/app/src/Controller/HomeController.php</code>
+																					</li>
+																					<li>Your template at
+																						<code>/app/templates/home/index.html.twig</code>
+																					</li>
+																				</ul>
+																			</div> #}
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Karukera Beach volley Guadeloupe</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+	</head>
+	<body>
+		<header>
+			<!-- *********NAVBAR******* -->
+			<nav>
+				<ul>
+					<li id="logo">
+						<a href="#">KBV</a>
+					</li>
+				</ul>
+				<ul>
+					<li id="licence">
+						<a href="#">Accès Licenciés</a>
+					</li>
+				</ul>
+
+				<ul>
+					<li id="shop">
+						<a href="#">Boutique</a>
+					</li>
+				</ul>
+				<ul>
+					<li id="training">
+						<a href="#">Entrainement/Swé</a>
+					</li>
+				</ul>
+				<ul>
+					<li id="Blog">
+						<a href="#">Evènements</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- **********IMAGE PRINCIPALE*********** -->
+			<div id="imagePrincipale">
+				<h1>
+					KARUKERA
+					<br/>
+					BEACH VOLLEY
+				</h1>
+				<div id="premierTrait"></div>
+				<h3>LE BEACH VOLLEY AU FEMININ</h3>
+			</div>
+			<section id="presentation">
+				<div class="assoInfos">
+					<h2>l'association Karukéra Beach Volley</h2>
+				</div>
+				<div id="textIntro">
+					<h2>"La Guadeloupe c'est où ? "</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ex
+																																																																																																						            cupiditate expedita a voluptatem facilis corporis aperiam, commodi
+																																																																																																						            minus beatae fugit quam unde. Vel, harum accusantium quasi,
+																																																																																																						            recusandae debitis dolores odio nihil quaerat illo ut totam ratione
+																																																																																																						            fugiat! Qui quos modi non accusamus natus! Aut velit, molestias
+																																																																																																						            ratione facere adipisci consequuntur voluptatem natus magni
+																																																																																																						            recusandae harum possimus numquam dolorum ut!
+					</p>
+				</div>
+				<div class="monde">
+					<h4>Où dans le monde ?</h4>
+					<a href="#"><img src="media/ou-se-trouve-guadeloupe-monde.jpg" alt="carte monde" height="200" width="400"/></a>
+				</div>
+				<div>
+					<h5>LES OUTILS DE BASE</h5>
+				</div>
+				<div
+					id="outils">
+					<!-- <div class="imagesOutils">
+																																																																																					                    <h4>Où dans le monde ?</h4>
+																																																																																					                    <a href="#"><img src="media/ou-se-trouve-guadeloupe-monde.jpg" alt="carte monde" height="200" width="400"></a>
+																																																																																					                </div> -->
+
+					<div class="imagesOutils">
+						<h4>Une plage de sable fin</h4>
+						<a href="#" class="sable"></a>
+					</div>
+					<div class="imagesOutils">
+						<h4>Un kit de jeu</h4>
+						<a href="#" class="kit"><img src="media/kit volley.jpg" alt="kit volley"/></a>
+					</div>
+					<div class="imagesOutils">
+						<h4>Météo ensoleillée</h4>
+						<a href="#" class="soleil"><img src="media/soleil.jpg" alt="soleil" height="200" width="400"/></a>
+					</div>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+																																																																																																						            iure hic veritatis voluptatem cum dolorem similique doloribus iste
+																																																																																																						            architecto soluta adipisci illo neque sunt. Aliquid, molestiae fugit
+																																																																																																						            odio, odit vel iure magni mollitia iusto hic quas non exercitationem
+																																																																																																						            numquam esse!
+					</p>
+				</div>
+			</section>
+			<section id="tourisme">
+				<h2>" Des lieux magiques... "</h2>
+				<ul>
+					<li id="datcha">
+						<p>Plage de la Datcha / Le gosier</p>
+					</li>
+					<li id="bourg">
+						<p>Plage du bourg / Sainte Anne</p>
+					</li>
+					<li id="grandeAnse">
+						<p>Plage de grande anse / Deshaies</p>
+					</li>
+				</ul>
+			</section>
+		</header>
+		<footer>
+			<h2>Contactez-nous</h2>
+			<form>
+				<input placeholder="Prénom"/>
+				<input placeholder="Email"/>
+				<textarea placeholder="Votre message ici..."></textarea>
+				<button>Envoyer</button>
+			</form>
+			<div id="deuxiemeTrait"></div>
+
+			<div id="copyrightEtIcons"></div>
+			<div id="copyright">
+				<span>©MJFWI();2024</span>
+			</div>
+			<div id="icons">
+				<a href="http://www.twitter.fr">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a href="http://www.facebook.fr">
+					<i class="fa fa-facebook"></i>
+				</a>
+				<a href="http://www.instagram.fr">
+					<i class="fa fa-instagram"></i>
+				</a>
+			</div>
+			<a href="">Administration</a>
+		</footer>
+	</body>
 {% endblock %}
