@@ -78,7 +78,7 @@ class AdherentController extends AbstractController
 
     //         // Message de succès et redirection vers la liste des adhérents
     //         $this->addFlash('success', 'Adhérent créé avec succès!');
-    //         return $this->redirectToRoute('adherent_index');
+    //         return $this->redirectToRoute('app_adherent');
     //     }
 
     //     return $this->render('adherent/create.html.twig', [
@@ -115,6 +115,6 @@ class AdherentController extends AbstractController
             $this->addFlash('success', 'Adhérent supprimé avec succès!');
         }
 
-        return $this->redirectToRoute('adherent_index');
+        return $this->redirectToRoute('app_adherent');
     }
 }
