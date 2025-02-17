@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Enum\UserRole;
+use App\Enum\Level;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -33,23 +34,26 @@ class User
     #[ORM\Column(type: 'string', length: 100, unique: true)]
     private string $email;
 
-
     #[ORM\Column(length: 50)]
     private ?string $password = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateBirth = null;
+    private ?\DateTimeInterface $birthdate = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $registerDate = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $numero_licence = null;
+    private ?string $licenseNumber = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_expiration_licence = null;
+    private ?\DateTimeInterface $expirationDateLicense = null;
 
-    
+    #[ORM\Column(length: 255)]
+    private ?string $address = null;
+
+    #[ORM\Column(enumType: Level::class)]
+    private ?Level $level;
 
 
 
@@ -143,8 +147,6 @@ class User
     }
 
     
-
-
     public function getPassword(): ?string
     {
         return $this->password;
@@ -157,14 +159,14 @@ class User
         return $this;
     }
 
-    public function getDateBirth(): ?\DateTimeInterface
+    public function getBirthdate(): ?\DateTimeInterface
     {
-        return $this->dateBirth;
+        return $this->birthdate;
     }
 
-    public function setDateBirth(\DateTimeInterface $dateBirth): static
+    public function setBirthdate(\DateTimeInterface $birthdate): static
     {
-        $this->dateBirth = $dateBirth;
+        $this->birthdate = $birthdate;
 
         return $this;
     }
@@ -181,34 +183,58 @@ class User
         return $this;
     }
 
-    public function getNumeroLicence(): ?string
+    public function getLicenseNumber(): ?string
     {
-        return $this->numero_licence;
+        return $this->licenseNumber;
     }
 
-    public function setNumeroLicence(string $numero_licence): static
+    public function setLicenseNumber(string $licenseNumber): static
     {
-        $this->numero_licence = $numero_licence;
+        $this->licenseNumber = $licenseNumber;
 
         return $this;
     }
 
-    public function getDateExpirationLicence(): ?\DateTimeInterface
+    public function getExpirationDateLicense(): ?\DateTimeInterface
     {
-        return $this->date_expiration_licence;
+        return $this->expirationDateLicense;
     }
 
-    public function setDateExpirationLicence(\DateTimeInterface $date_expiration_licence): static
+    public function setExpirationDateLicense(\DateTimeInterface $expirationDateLicense): static
     {
-        $this->date_expiration_licence = $date_expiration_licence;
+        $this->expirationDateLicense = $expirationDateLicense;
 
         return $this;
     }
 
     
-
     public function getRoles(): array
         {
             return [$this->getUserRole()->name];
+        }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): static
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getLevel(): ?Level
+        {
+            return $this->level;
+        }
+
+        
+    public function setLevel(Level $level): static
+        {
+            $this->level = $level;
+
+            return $this;
         }
 }
