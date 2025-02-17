@@ -3,7 +3,7 @@
 namespace App\Enum;
 
 
-enum RoleAdherent: string
+enum UserRole: string
 {
     case DEBUTANT = 'debutant';
     case INTERMEDIAIRE = 'Loisir';

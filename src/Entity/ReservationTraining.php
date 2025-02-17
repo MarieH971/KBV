@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ReservationPratiqueRepository;
+use App\Repository\ReservationTrainingRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ReservationPratiqueRepository::class)]
-class ReservationPratique
+#[ORM\Entity(repositoryClass: ReservationTrainingRepository::class)]
+class ReservationTraining
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -16,11 +16,11 @@ class ReservationPratique
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Adherent $adherents = null;
+    private ?User $adherents = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Pratique $type_entrainement = null;
+    private ?Training $type_entrainement = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_reservation = null;
@@ -30,24 +30,24 @@ class ReservationPratique
         return $this->id;
     }
 
-    public function getAdherent(): ?Adherent
+    public function getUser(): ?User
     {
         return $this->adherents;
     }
 
-    public function setAdherent(?Adherent $adherents): static
+    public function setUser(?User $adherents): static
     {
         $this->adherents = $adherents;
 
         return $this;
     }
 
-    public function getTypeEntrainement(): ?Pratique
+    public function getTypeEntrainement(): ?Training
     {
         return $this->type_entrainement;
     }
 
-    public function setTypeEntrainement(?Pratique $type_entrainement): static
+    public function setTypeEntrainement(?Training $type_entrainement): static
     {
         $this->type_entrainement = $type_entrainement;
 

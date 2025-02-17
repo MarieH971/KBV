@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Pratique;
+use App\Entity\Training;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Pratique>
+ * @extends ServiceEntityRepository<Training>
  */
-class PratiqueRepository extends ServiceEntityRepository
+class TrainingRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Pratique::class);
+        parent::__construct($registry, Training::class);
     }
 
     //    /**
-    //     * @return Pratique[] Returns an array of Pratique objects
+    //     * @return Training[] Returns an array of Training objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class PratiqueRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Pratique
+    //    public function findOneBySomeField($value): ?Training
     //    {
     //        return $this->createQueryBuilder('p')
     //            ->andWhere('p.exampleField = :val')

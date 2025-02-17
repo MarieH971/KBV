@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\PratiqueRepository;
+use App\Repository\TrainingRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PratiqueRepository::class)]
-class Pratique
+#[ORM\Entity(repositoryClass: TrainingRepository::class)]
+class Training
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -27,7 +27,7 @@ class Pratique
     private ?string $type_entrainement = null;
 
     #[ORM\Column]
-    private ?int $nombre_places = null;
+    private ?int $firstNamebre_places = null;
 
     public function getId(): ?int
     {
@@ -84,12 +84,12 @@ class Pratique
 
     public function getNombrePlaces(): ?int
     {
-        return $this->nombre_places;
+        return $this->firstNamebre_places;
     }
 
-    public function setNombrePlaces(int $nombre_places): static
+    public function setNombrePlaces(int $firstNamebre_places): static
     {
-        $this->nombre_places = $nombre_places;
+        $this->firstNamebre_places = $firstNamebre_places;
 
         return $this;
     }

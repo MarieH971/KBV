@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ProduitsRepository;
+use App\Repository\ProductRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ProduitsRepository::class)]
-class Produits
+#[ORM\Entity(repositoryClass: ProductRepository::class)]
+class Product
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -15,7 +15,7 @@ class Produits
     private ?int $id = null;
 
     #[ORM\Column(length: 150)]
-    private ?string $nom = null;
+    private ?string $firstName = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
@@ -36,12 +36,12 @@ class Produits
 
     public function getNom(): ?string
     {
-        return $this->nom;
+        return $this->firstName;
     }
 
-    public function setNom(string $nom): static
+    public function setNom(string $firstName): static
     {
-        $this->nom = $nom;
+        $this->firstName = $firstName;
 
         return $this;
     }

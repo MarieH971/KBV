@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\ReservationEquipement;
+use App\Entity\ReservationTraining;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<ReservationEquipement>
+ * @extends ServiceEntityRepository<ReservationTraining>
  */
-class ReservationEquipementRepository extends ServiceEntityRepository
+class ReservationTrainingRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ReservationEquipement::class);
+        parent::__construct($registry, ReservationTraining::class);
     }
 
 //    /**
-//     * @return ReservationEquipement[] Returns an array of ReservationEquipement objects
+//     * @return ReservationTraining[] Returns an array of ReservationTraining objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -31,7 +31,7 @@ class ReservationEquipementRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?ReservationEquipement
+//    public function findOneBySomeField($value): ?ReservationTraining
 //    {
 //        return $this->createQueryBuilder('r')
 //            ->andWhere('r.exampleField = :val')
