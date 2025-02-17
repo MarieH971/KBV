@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\AdherentsRepository;
+use App\Repository\AdherentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AdherentsRepository::class)]
-class Adherents
+#[ORM\Entity(repositoryClass: AdherentRepository::class)]
+class Adherent
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

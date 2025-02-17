@@ -16,7 +16,7 @@ class ReservationPratique
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Adherents $adherents = null;
+    private ?Adherent $adherents = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -30,12 +30,12 @@ class ReservationPratique
         return $this->id;
     }
 
-    public function getAdherents(): ?Adherents
+    public function getAdherent(): ?Adherent
     {
         return $this->adherents;
     }
 
-    public function setAdherents(?Adherents $adherents): static
+    public function setAdherent(?Adherent $adherents): static
     {
         $this->adherents = $adherents;
 
