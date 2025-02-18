@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ReservationEquipementRepository;
+use App\Repository\ReservationEquipmentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ReservationEquipementRepository::class)]
-class ReservationEquipement
+#[ORM\Entity(repositoryClass: ReservationEquipmentRepository::class)]
+class ReservationEquipment
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -16,11 +16,11 @@ class ReservationEquipement
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Adherents $Adherents = null;
+    private ?User $User = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Equipement $Equipement = null;
+    private ?Equipment $Equipment = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_reservation = null;
@@ -33,26 +33,26 @@ class ReservationEquipement
         return $this->id;
     }
 
-    public function getAdherents(): ?Adherents
+    public function getUser(): ?User
     {
-        return $this->Adherents;
+        return $this->User;
     }
 
-    public function setAdherents(?Adherents $Adherents): static
+    public function setUser(?User $User): static
     {
-        $this->Adherents = $Adherents;
+        $this->User = $User;
 
         return $this;
     }
 
-    public function getEquipement(): ?Equipement
+    public function getEquipment(): ?Equipment
     {
-        return $this->Equipement;
+        return $this->Equipment;
     }
 
-    public function setEquipement(?Equipement $Equipement): static
+    public function setEquipment(?Equipment $Equipment): static
     {
-        $this->Equipement = $Equipement;
+        $this->Equipment = $Equipment;
 
         return $this;
     }

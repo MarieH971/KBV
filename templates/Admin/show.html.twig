@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'Adhérent
+{% endblock %}
+
+{% block body %}
+	<h1>Détails de l'adhérent
+		{{ user.nom }}
+		{{ user.prenom }}</h1>
+
+	<ul>
+		<li>
+			<strong>Nom :</strong>
+			{{ user.nom }}</li>
+		<li>
+			<strong>Prénom :</strong>
+			{{ user.prenom }}</li>
+		<li>
+			<strong>Email :</strong>
+			{{ user.email }}</li>
+		<li>
+			<strong>Téléphone :</strong>
+			{{ user.telephone }}</li>
+		<li>
+			<strong>Date de naissance :</strong>
+			{{ user.dateDeNaissance ? user.dateDeNaissance|date('d/m/Y') : 'Non spécifiée' }}</li>
+		<li>
+			<strong>Date d'inscription :</strong>
+			{{ user.dateInscription|date('d/m/Y') }}</li>
+		<li>
+			<strong>Date d'expiration de la licence :</strong>
+			{{ user.dateExpirationLicence|date('d/m/Y') }}</li>
+		<li>
+			<strong>Level :</strong>
+			{{ user.Level }}</li>
+		<li>
+			<strong>Rôle :</strong>
+			{{ user.UserRole }}</li>
+	</ul>
+
+	<a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-warning">Modifier</a>
+	<a href="{{ path('app_user') }}" class="btn btn-secondary">Retour à la liste</a>
+{% endblock %}

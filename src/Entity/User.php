@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\AdherentsRepository;
+use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AdherentsRepository::class)]
-class Adherents
+#[ORM\Entity(repositoryClass: UserRepository::class)]
+class User
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -15,28 +15,28 @@ class Adherents
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $nom = null;
+    private ?string $firstName = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $prenom = null;
+    private ?string $lastName = null;
 
     #[ORM\Column(length: 50)]
     private ?string $email = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $mot_de_passe = null;
+    private ?string $password = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_de_naissance = null;
+    private ?\DateTimeInterface $dateOfBirth = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_inscription = null;
+    private ?\DateTimeInterface $registrationDate = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $numero_licence = null;
+    private ?string $licenseNumber = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_expiration_licence = null;
+    private ?\DateTimeInterface $licenseExpirationDate = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
@@ -53,26 +53,26 @@ class Adherents
         return $this;
     }
 
-    public function getNom(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->nom;
+        return $this->firstName;
     }
 
-    public function setNom(string $nom): static
+    public function setFirstName(string $firstName): static
     {
-        $this->nom = $nom;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function getPrenom(): ?string
+    public function getLastName(): ?string
     {
-        return $this->prenom;
+        return $this->lastName;
     }
 
-    public function setPrenom(string $prenom): static
+    public function setLastName(string $lastName): static
     {
-        $this->prenom = $prenom;
+        $this->lastName = $lastName;
 
         return $this;
     }
@@ -91,60 +91,60 @@ class Adherents
 
     public function getMotDePasse(): ?string
     {
-        return $this->mot_de_passe;
+        return $this->password;
     }
 
-    public function setMotDePasse(string $mot_de_passe): static
+    public function setMotDePasse(string $password): static
     {
-        $this->mot_de_passe = $mot_de_passe;
+        $this->password = $password;
 
         return $this;
     }
 
     public function getDateDeNaissance(): ?\DateTimeInterface
     {
-        return $this->date_de_naissance;
+        return $this->dateOfBirth;
     }
 
-    public function setDateDeNaissance(\DateTimeInterface $date_de_naissance): static
+    public function setDateDeNaissance(\DateTimeInterface $dateOfBirth): static
     {
-        $this->date_de_naissance = $date_de_naissance;
+        $this->dateOfBirth = $dateOfBirth;
 
         return $this;
     }
 
     public function getDateInscription(): ?\DateTimeInterface
     {
-        return $this->date_inscription;
+        return $this->registrationDate;
     }
 
-    public function setDateInscription(\DateTimeInterface $date_inscription): static
+    public function setDateInscription(\DateTimeInterface $registrationDate): static
     {
-        $this->date_inscription = $date_inscription;
+        $this->registrationDate = $registrationDate;
 
         return $this;
     }
 
     public function getNumeroLicence(): ?string
     {
-        return $this->numero_licence;
+        return $this->licenseNumber;
     }
 
-    public function setNumeroLicence(string $numero_licence): static
+    public function setNumeroLicence(string $licenseNumber): static
     {
-        $this->numero_licence = $numero_licence;
+        $this->licenseNumber = $licenseNumber;
 
         return $this;
     }
 
     public function getDateExpirationLicence(): ?\DateTimeInterface
     {
-        return $this->date_expiration_licence;
+        return $this->licenseExpirationDate;
     }
 
-    public function setDateExpirationLicence(\DateTimeInterface $date_expiration_licence): static
+    public function setDateExpirationLicence(\DateTimeInterface $licenseExpirationDate): static
     {
-        $this->date_expiration_licence = $date_expiration_licence;
+        $this->licenseExpirationDate = $licenseExpirationDate;
 
         return $this;
     }
