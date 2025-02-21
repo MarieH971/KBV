@@ -133,7 +133,7 @@ h5{
     box-shadow: 6px 6px 28px -1px rgba(0, 0, 0, 0.75);
 }
 .sable{
-    background: url(../medias/plage_sable.jpg) cover;
+    background: url(/media/plage_sable.jpg) cover;
     width: 60px;
     height: 60px;
 }
