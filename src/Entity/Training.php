@@ -82,12 +82,12 @@ class Training
         return $this;
     }
 
-    public function getNombrePlaces(): ?int
+    public function getfirstNamebrePlaces(): ?int
     {
         return $this->firstNamebre_places;
     }
 
-    public function setNombrePlaces(int $firstNamebre_places): static
+    public function setfirstNamebrePlaces(int $firstNamebre_places): static
     {
         $this->firstNamebre_places = $firstNamebre_places;
 

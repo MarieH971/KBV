@@ -16,7 +16,7 @@ class ReservationTraining
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $adherents = null;
+    private ?User $User = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -32,12 +32,12 @@ class ReservationTraining
 
     public function getUser(): ?User
     {
-        return $this->adherents;
+        return $this->User;
     }
 
-    public function setUser(?User $adherents): static
+    public function setUser(?User $User): static
     {
-        $this->adherents = $adherents;
+        $this->User = $User;
 
         return $this;
     }

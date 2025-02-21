@@ -34,12 +34,12 @@ class Equipment
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getfirstName(): ?string
     {
         return $this->firstName;
     }
 
-    public function setNom(string $firstName): static
+    public function setfirstName(string $firstName): static
     {
         $this->firstName = $firstName;
 

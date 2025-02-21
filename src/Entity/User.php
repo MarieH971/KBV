@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use App\Enum\UserRole;
-use App\Enum\Level;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -22,40 +20,26 @@ class User
     #[ORM\Column(length: 50)]
     private ?string $lastName = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $photo = null;
-
-    #[ORM\Column(enumType: UserRole::class)]
-    private ?UserRole $userRole;
-    
-    #[ORM\Column(type: 'string', length: 15, nullable: true)]
-    private ?string $phone;
-
-    #[ORM\Column(type: 'string', length: 100, unique: true)]
-    private string $email;
+    #[ORM\Column(length: 50)]
+    private ?string $email = null;
 
     #[ORM\Column(length: 50)]
     private ?string $password = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $birthdate = null;
+    private ?\DateTimeInterface $dateOfBirth = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $registerDate = null;
+    private ?\DateTimeInterface $registrationDate = null;
 
     #[ORM\Column(length: 20)]
     private ?string $licenseNumber = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $expirationDateLicense = null;
+    private ?\DateTimeInterface $licenseExpirationDate = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $address = null;
-
-    #[ORM\Column(enumType: Level::class)]
-    private ?Level $level;
-
-
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $photo = null;
 
     public function getId(): ?int
     {
@@ -92,47 +76,6 @@ class User
 
         return $this;
     }
-
-
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto(?string $photo): static
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
-
-    public function getUserRole(): ?UserRole
-        {
-            return $this->userRole;
-        }
-
-        
-    public function setUserRole(UserRole $role): static
-        {
-            $this->userRole = $role;
-
-            return $this;
-        }
-
-    public function getPhone(): ?string
-        {
-            return $this->phone;
-        }
-
-        
-    public function setPhone(?string $phone): static
-        {
-            $this->phone = $phone;
-
-            return $this;
-        }    
-
 
     public function getEmail(): ?string
     {
@@ -195,14 +138,14 @@ class User
         return $this;
     }
 
-    public function getExpirationDateLicense(): ?\DateTimeInterface
+    public function getDateExpirationLicence(): ?\DateTimeInterface
     {
-        return $this->expirationDateLicense;
+        return $this->licenseExpirationDate;
     }
 
-    public function setExpirationDateLicense(\DateTimeInterface $expirationDateLicense): static
+    public function setDateExpirationLicence(\DateTimeInterface $licenseExpirationDate): static
     {
-        $this->expirationDateLicense = $expirationDateLicense;
+        $this->licenseExpirationDate = $licenseExpirationDate;
 
         return $this;
     }

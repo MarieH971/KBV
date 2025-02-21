@@ -1,16 +1,11 @@
 <?php
 
-
-namespace App\Enum;
-
-
-
     namespace App\Enum;
-    enum UserRole: string
+
+    enum Status: string
     {
-        
-        case ROLE_USER = 'Adhérent';
-        case ROLE_ADMIN = 'Admin';
+        case NEW = 'Neuf';
+        case USED = 'Usé';
 
         /**
          * Converts the enum cases into an associative array.
@@ -25,5 +20,5 @@ namespace App\Enum;
             }
             return $cases;
         }
-    }
 
+    }
