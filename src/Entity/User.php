@@ -20,11 +20,17 @@ class User
     #[ORM\Column(length: 50)]
     private ?string $lastName = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $photo = null;
+
     #[ORM\Column(length: 50)]
     private ?string $email = null;
 
     #[ORM\Column(length: 50)]
     private ?string $password = null;
+
+    #[ORM\Column(enumType: UserRole::class)]
+    private ?UserRole $userRole;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateOfBirth = null;
@@ -38,8 +44,9 @@ class User
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $licenseExpirationDate = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $photo = null;
+    
+
+
 
     public function getId(): ?int
     {
@@ -77,6 +84,21 @@ class User
         return $this;
     }
 
+
+    public function getPhoto(): ?string
+        {
+            return $this->photo;
+        }
+
+        
+    public function setPhoto(?string $photo): static
+        {
+            $this->photo = $photo;
+
+            return $this;
+        }
+
+
     public function getEmail(): ?string
     {
         return $this->email;
@@ -102,6 +124,19 @@ class User
         return $this;
     }
 
+    public function getUserRole(): ?UserRole
+        {
+            return $this->userRole;
+        }
+
+        
+    public function setUserRole(UserRole $role): static
+        {
+            $this->userRole = $role;
+
+            return $this;
+        }
+
     public function getBirthdate(): ?\DateTimeInterface
     {
         return $this->birthdate;
@@ -114,12 +149,12 @@ class User
         return $this;
     }
 
-    public function getRegisterDate(): ?\DateTimeInterface
+    public function getRegistrationDate(): ?\DateTimeInterface
     {
         return $this->registerDate;
     }
 
-    public function setRegisterDate(\DateTimeInterface $registerDate): static
+    public function setRegistrationDate(\DateTimeInterface $registerDate): static
     {
         $this->registerDate = $registerDate;
 
@@ -138,12 +173,12 @@ class User
         return $this;
     }
 
-    public function getDateExpirationLicence(): ?\DateTimeInterface
+    public function getLicenseExpirationDate(): ?\DateTimeInterface
     {
         return $this->licenseExpirationDate;
     }
 
-    public function setDateExpirationLicence(\DateTimeInterface $licenseExpirationDate): static
+    public function setLicenseExpirationDate(\DateTimeInterface $licenseExpirationDate): static
     {
         $this->licenseExpirationDate = $licenseExpirationDate;
 
@@ -156,17 +191,7 @@ class User
             return [$this->getUserRole()->name];
         }
 
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address): static
-    {
-        $this->address = $address;
-
-        return $this;
-    }
+    
 
     public function getLevel(): ?Level
         {
