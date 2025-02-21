@@ -6,7 +6,7 @@ namespace App\Enum;
 
 
     namespace App\Enum;
-    enum userRole: string
+    enum UserRole: string
     {
         
         case ROLE_USER = 'Adhérent';

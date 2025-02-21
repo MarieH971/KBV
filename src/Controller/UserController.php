@@ -42,8 +42,8 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setDateInscription(new \DateTime());
-            $user->setDateExpirationLicence(new \DateTime('+1 year')); // Licence valable 1 an à partir de la date d'inscription
+            $user->setRegistrationDate(new \DateTime());
+            $user->setLicenseExpirationDate(new \DateTime('+1 year')); // Licence valable 1 an à partir de la date d'inscription
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -71,7 +71,7 @@ class UserController extends AbstractController
     //     $form->handleRequest($request);
 
     //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $user->setDateInscription(new \DateTime()); // La date d'inscription est la date actuelle
+    //         $user->setregistrationDate(new \DateTime()); // La date d'inscription est la date actuelle
     //         $user->setDateExpirationLicence(new \DateTime('+1 year')); // Exemple : licence valable 1 an
     //         $entityManager->persist($user);
     //         $entityManager->flush();

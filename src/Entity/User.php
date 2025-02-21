@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+
+use App\Enum\UserRole;
+use App\Enum\Level;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -44,7 +47,8 @@ class User
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $licenseExpirationDate = null;
 
-    
+    #[ORM\Column(enumType: Level::class)]
+    private ?Level $level;
 
 
 
@@ -137,26 +141,26 @@ class User
             return $this;
         }
 
-    public function getBirthdate(): ?\DateTimeInterface
+    public function getdateOfBirth(): ?\DateTimeInterface
     {
-        return $this->birthdate;
+        return $this->dateOfBirth;
     }
 
-    public function setBirthdate(\DateTimeInterface $birthdate): static
+    public function setdateOfBirth(\DateTimeInterface $dateOfBirth): static
     {
-        $this->birthdate = $birthdate;
+        $this->dateOfBirth = $dateOfBirth;
 
         return $this;
     }
 
     public function getRegistrationDate(): ?\DateTimeInterface
     {
-        return $this->registerDate;
+        return $this->registrationDate;
     }
 
-    public function setRegistrationDate(\DateTimeInterface $registerDate): static
+    public function setRegistrationDate(\DateTimeInterface $registrationDate): static
     {
-        $this->registerDate = $registerDate;
+        $this->registrationDate = $registrationDate;
 
         return $this;
     }
