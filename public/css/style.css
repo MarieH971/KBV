@@ -28,21 +28,30 @@ background-color: rgb(169, 176, 230);
 position: fixed;
 width: 100%;
 opacity: 1;
+padding: 15px;
 }
-header li{
+/* header li{
     font-size: 1.2em;
     float: right;
-}
-header li a{
+    
+} */
+/* header li a{
     text-decoration: none;
     display: block;
     padding: 18px 16px;
+} */
+
+.links a{
+    padding-left: 40px;
 }
 #logo{
     font-family: 'Orbiton', cursive;
     font-weight: bold;
     float: left;
 }
+
+
+
 /* *****************IMAGE PRINCIPALE******************** */
 #imagePrincipale{
     padding-top: 60px;
@@ -136,4 +145,15 @@ h5{
     background: url(/media/plage_sable.jpg) cover;
     width: 60px;
     height: 60px;
+}
+
+/******************FOOTER***************/
+
+.footer{
+    background-color: rgb(169, 176, 230);
+    
+}
+#copyrightEtIcons{
+    display: flex;
+    justify-content: space-between;
 }
