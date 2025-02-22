@@ -42,8 +42,8 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Nom</th>
-				<th>Prénom</th>
+				<th>lastName</th>
+				<th>PrélastName</th>
 				<th>Email</th>
 				<th>Date d'inscription</th>
 				<th>Actions</th>
@@ -52,8 +52,8 @@
 		<tbody>
 			{% for user in users %}
 				<tr>
-					<td>{{ user.nom }}</td>
-					<td>{{ user.prenom }}</td>
+					<td>{{ user.lastName }}</td>
+					<td>{{ user.firstName }}</td>
 					<td>{{ user.email }}</td>
 					<td>{{ user.registrationDate|date('d/m/Y') }}</td>
 					<td>

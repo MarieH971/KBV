@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Enum\Level;
 use App\Enum\UserRole;
 use App\Form\Transformer\UserRoleTransformer;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -21,32 +22,32 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('adresse', TextType::class)
+            ->add('lastName', TextType::class)
+            ->add('firstName', TextType::class)
+            
             ->add('telephone', TextType::class, ['required' => false])
             ->add('photo', FileType::class, ['required' => false])
             ->add('email', EmailType::class)
-            ->add('mot_de_passe', PasswordType::class)
+            ->add('password', passwordType::class)
             ->add(
-                'date_de_naissance',
+                'dateOfBirth',
                 DateType::class,
                 ['widget' => 'single_text'],
                 null
             )
-            ->add('date_inscription', null, [
+            ->add('registrationDate', null, [
                 'widget' => 'single_text',
             ])
-            ->add('numero_licence', TextType::class)
-            ->add('date_expiration_licence', DateType::class, ['widget' => 'single_text'], null)
+            ->add('licenseNumber', TextType::class)
+            ->add('licenseExpirationDate', DateType::class, ['widget' => 'single_text'], null)
             ->add(
                 'Level',
                 ChoiceType::class,
                 [
                     'choices' => [
-                        'Débutant' => Level::BEGINNER,
-                        'Loisir' => Level::INTERMEDIATE,
-                        'Avancé' => Level::ADVANCED,
+                        'Débutant' => Level::LEVEL_BEGINNER,
+                        'Loisir' => Level::LEVEL_INTERMEDIATE,
+                        'Avancé' => Level::LEVEL_ADVANCED,
                     ],
                 ]
             )

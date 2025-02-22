@@ -33,11 +33,11 @@ class UserController extends AbstractController
     }
 
     // Inscription d'un nouvel adhérent
-    #[Route('/inscription/user', name: 'inscription_user')]
+    #[Route('/inscription', name: 'inscription')]
     public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = new user();
-        $form = $this->createForm(userType::class, $user); // Formulaire d'inscription
+        $form = $this->createForm(UserType::class, $user); // Formulaire d'inscription
 
         $form->handleRequest($request);
 
@@ -56,7 +56,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('app_user');
         }
 
-        return $this->render('user/create.html.twig', [
+        return $this->render('/Admin/create.html.twig', [
             'form' => $form->createView(),
         ]);
     }

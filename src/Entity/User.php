@@ -18,13 +18,16 @@ class User
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $firstName = null;
+    private ?string $lastName = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $lastName = null;
+    private ?string $firstName = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $telephone = null;
 
     #[ORM\Column(length: 50)]
     private ?string $email = null;
@@ -64,26 +67,26 @@ class User
         return $this;
     }
 
-    public function getFirstName(): ?string
-    {
-        return $this->firstName;
-    }
-
-    public function setFirstName(string $firstName): static
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    public function getLastName(): ?string
+    public function getlastName(): ?string
     {
         return $this->lastName;
     }
 
-    public function setLastName(string $lastName): static
+    public function setlastName(string $lastName): static
     {
         $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getfirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setfirstName(string $firstName): static
+    {
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -116,12 +119,12 @@ class User
     }
 
     
-    public function getPassword(): ?string
+    public function getpassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): static
+    public function setpassword(string $password): static
     {
         $this->password = $password;
 
@@ -209,4 +212,24 @@ class User
 
             return $this;
         }
+
+    /**
+     * Get the value of telephone
+     */ 
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * Set the value of telephone
+     *
+     * @return  self
+     */ 
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
 }

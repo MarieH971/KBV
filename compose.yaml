@@ -47,7 +47,7 @@ services:
       PMA_HOST: "database"
       PMA_PORT: "3306"
       PMA_USER: "app"
-      PMA_PASSWORD: "app"
+      PMA_password: "app"
     ports:
       - "81:80"
     depends_on:
@@ -57,9 +57,9 @@ services:
       container_name: "database"
       image: mysql:8.0
       environment:
-          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ROOT_password: root
           MYSQL_DATABASE: KbvProd
-          MYSQL_PASSWORD: app
+          MYSQL_password: app
           MYSQL_USER: app
       healthcheck:
           test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
