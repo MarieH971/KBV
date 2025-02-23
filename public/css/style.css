@@ -69,7 +69,7 @@ h1{
     text-shadow: 1px 3px 2px black;
 }
 #premierTrait{
-    height: 1px;
+    height: 3px;
     width: 25%;
     margin: -3px auto;
     background-color: beige;
@@ -116,41 +116,62 @@ h5{
     transition: 0.6s ease-in-out;
 }
 /* *******************TOURISME************************* */
-*tourisme{
-    height: 400px;
-    background-color: #f1f2f6;
+#tourisme{
+    /* height: 400px; */
+    background-color: skyblue;
     padding: 1px 2%;
+    /* display: flex; */
 }
-#tourisme h2{
+/* #tourisme h2{
     padding-top: 60px;
-}
+} */
+
+/* .lieux{
+    min-height: 200px;
+} */
 #datcha{
-    background: url(/media/Datcha.JPG) no-repeat 50%;
+    background: url(/media/Datcha.JPG) no-repeat 60px 60px;
+    height: 200px;
 }
 #bourg{
-    background: url(/media/plage_bourg_ste_anne.jpg) no-repeat 50%;
+    background: url(/media/plage_bourg_ste_anne.jpg) no-repeat ;
 }
 #grandeAnse{
-    background: url(/media/grdeanse.jpg) no-repeat 40% 40%;
+    background: url(/media/grde_anse.jpg) no-repeat ;
 }
-#tourisme li{
+/* #tourisme li{
     margin: 65px 100px 0 100px;
     height: 226px;
     width: 55%;
     max-width: 550px;
     float: left;
     box-shadow: 6px 6px 28px -1px rgba(0, 0, 0, 0.75);
-}
+} */
 .sable{
     background: url(/media/plage_sable.jpg) cover;
     width: 60px;
     height: 60px;
+}
+.endPart{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .end{
+    width: 100%;
+    display: block;
+} */
+form{
+    width: 50%;
 }
 
 /******************FOOTER***************/
 
 .footer{
     background-color: rgb(169, 176, 230);
+    padding: 10px 10px 0 10px;
     
 }
 #copyrightEtIcons{
