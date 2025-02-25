@@ -28,12 +28,13 @@ services:
     depends_on:
       - database
     environment:
-      PMA_PORT: "3306"
-      PMA_HOST: "database"
-      PMA_USER: "app"
-      PMA_password: "app"
+      PMA_PORT: 3306
+      PMA_HOST: database
+      PMA_USER: app
+      PMA_PASSWORD: app
     ports:
       - 81:80
+
 ###> doctrine/doctrine-bundle ###
   database:
     ports:
